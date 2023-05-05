@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useRef } from 'react';
 import { TopNav } from '../components/TopNav';
-import LocalStorage_SessionStorage from '../components/LocalStorage_SessionStorage';
-import PostDataTo_API from '../components/PostDataTo_API';
+import {NavLink} from 'react-router-dom';
 
 
 export const Home = () => {
-  
+  const recipeElRef = useRef();
+  const pancakeIngredientsEl = useRef();
   return (
     <React.Fragment>
       <TopNav/>
@@ -14,10 +14,10 @@ export const Home = () => {
         <div className='home_header_left'>
             <h1>Life is uncertain. Eat  first</h1>
             <h3 className="homeHeaderLeft_H3">
-                “ A recipe has no soul .<br/>You as the cook must bring soul to the recipe”<br/>-Thomas Keller
+              “ A recipe has no soul .<br/>You as the cook must bring soul to the recipe”<br/>-Thomas Keller
             </h3>
             <img src="images/swirlyArrow.png" style={{position:"relative",right:"-28vh",top:"-5vh"}}></img>
-          <button className="homeHeaderLeft_Button" onClick={function(){let a = document.createElement('a');a.href = "/recipes";a.click()}}>Explore Recipes</button>
+          <button className="homeHeaderLeft_Button" onClick={function(){recipeElRef.current.click()}}>Explore Recipes <NavLink ref={recipeElRef} to="/recipes" hidden/></button>
         </div>
 
         <div className='home_header_right'>
@@ -49,9 +49,9 @@ export const Home = () => {
 
           <div className="homeFooter_div1" >
             <div style={{position:"relative"}} >
-              <button style={{position:"absolute",backgroundColor:"green",right:"0"}}><img src={`images/bookmarkFeature.png`} alt=''/></button>
+              <button style={{cursor:'pointer',position:"absolute",backgroundColor:"green",right:"0"}}><img src={`images/bookmarkFeature.png`} alt=''/></button>
               <img src={`images/pancake.png`} alt=''/>
-              <button style={{position:"absolute",backgroundColor:"green",left:"0",bottom:"0"}}><img src={`images/ViewIngredientsButton.png`} alt=''/></button>
+              <button style={{cursor:'pointer',position:"absolute",backgroundColor:"green",left:"0",bottom:"0"}} onClick={function(){pancakeIngredientsEl.current.click();}}><img src={`images/ViewIngredientsButton.png`} alt=''/><NavLink ref={pancakeIngredientsEl} to="/recipesMethods/Pancakes" hidden/></button>
             </div>
             <h2 className="homeHeaderLeft_h2">Pancake</h2><h2 className="homeHeaderLeft_h2"><img src={`images/gordonRamsy.png`} alt=''/> Gordon Ramsay</h2>
           </div>
@@ -73,10 +73,8 @@ export const Home = () => {
             </div>
               <h2 className="homeHeaderLeft_h2">Fried Chicken & Rice</h2><h2><img src={`images/gordonRamsy.png`} alt=''/> Gordon Ramsay</h2>
           </div>
-
         </div>
       </div>
-      <LocalStorage_SessionStorage/><PostDataTo_API/>
     </React.Fragment>
   )
 }

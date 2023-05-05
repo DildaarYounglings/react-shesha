@@ -5,7 +5,7 @@ import MethodsPagePancake from "../MethodsPagePancake.png";
 export const Pancake = () => {
   return (
     <React.Fragment>
-        <TopNav></TopNav>
+      <TopNav/>
         <section className="RecipeMethodsPage">
             <div className="RecipeMethodsHeader">
               <div className="RecipeMethodsHeaderLeft">

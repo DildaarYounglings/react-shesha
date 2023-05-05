@@ -1,5 +1,6 @@
 import React,{useRef} from 'react';
 import { TopNav } from '../components/TopNav';
+import {NavLink} from 'react-router-dom';
 const API_KEY = "0d226b2d19b6426dad13000aac1c2c16";
 
 export const Recipes = ({API_KEY,query,setQuery,recipes,setRecipes,isDoneLoading,setIsDoneLoading}) => {
@@ -15,9 +16,9 @@ export const Recipes = ({API_KEY,query,setQuery,recipes,setRecipes,isDoneLoading
             clearTimeout(myTimeout);
         }, 2000);
         const recipeData = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=${9}&apiKey=${API_KEY}&includeNutrition=true`).then( response => response.json() ).then( jsonData => jsonData.results);
-        setRecipes(recipeData);
-        setQuery("");
-        console.log(recipeData);
+        //setRecipes(recipeData);
+        //setQuery("");
+        //console.log(recipeData);
     }
   return (
     <section className={`Recipes`}>
@@ -38,7 +39,7 @@ export const Recipes = ({API_KEY,query,setQuery,recipes,setRecipes,isDoneLoading
                 {recipes.map((item)=>(
                 <li className={`RecipeListItem`} key={item.id}>
                     <img className={`RecipeListImg`} src={item.image} alt={item.title}/>
-                    <h3>{item.title}</h3><a href={`/recipesMethods/${item.title}`} style={{textDecoration:"none",color:"black"}}>click to view method</a>
+                    <h3>{item.title}</h3><NavLink to={`/recipesMethods/${item.title}`} style={{textDecoration:"none",color:"black"}}>click to view method</NavLink>
                 </li>
             ))}
             </ul>

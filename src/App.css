@@ -22,6 +22,23 @@
   color: #61dafb;
 }
 
+/*start of Lessons.js*/
+.LessonsPage {
+  margin-top:5rem;
+  display: flex; flex-direction: column;
+}
+.LessonsRow{
+  margin-top:5rem;
+  display: flex; flex-direction: row; gap:5vh;
+}
+.LessonsItem{
+  display: flex; flex-direction: column;background-color:white;width:19vw;height:29vh;border-radius:10%;outline:1px solid #8E8A8A;
+;
+}
+.LessonsItem:hover{
+  display: flex; flex-direction: column;background-color: white;width:19vw;height:29vh;border-radius:1%;cursor: pointer;
+}
+/*end of Lessons.js*/
 
 /*begining of all css for TopNav.js component*/
 @keyframes TopNav{
@@ -40,13 +57,24 @@
   height:65px
 }
 .TopNav_a{
+  height:40px;
   cursor: pointer;
   position: relative;
   bottom:-20px;
   margin-left:10%;
-  font-size:1.1rem;
+  font-size:1.3rem;
   color: black;
   text-decoration: none;
+}
+.active{
+  height:40px;
+  cursor: pointer;
+  position: relative;
+  bottom:-20px;
+  margin-left:10%;
+  font-size:1.3rem;
+  color: black;
+  border-bottom:4px solid green;
 }
 .search_icon{
   position: relative;left:-5px;
@@ -134,6 +162,10 @@
   animation: FromRight2Left ease-in-out 2s;
 }
 .homeHeaderLeft_Button{
+  border-radius:37px;border:none;height:42px;width:160px;background-color:#36873E;color:white;margin-bottom:190px
+}
+.homeHeaderLeft_Button:hover{
+  cursor: pointer;
   border-radius:37px;border:none;height:42px;width:160px;background-color:#36873E;color:white;margin-bottom:190px
 }
 .home_footer{

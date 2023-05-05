@@ -1,17 +1,17 @@
-import React,{useRef} from 'react';
-//import { ArrayComponent } from './ArrayComponent';
-//import { UpdateEffectComponent } from './UpdateEffectComponent';
+import React,{useRef,useState} from 'react';
+import {NavLink} from 'react-router-dom';
+
 export const TopNav = () => {
-  const displayRef = useRef()
+  const navigation = [{name:'Home',href:'/'},{name:'Lessons',href:'/lessons'},{name:'Live Lessons',href:'/liveLessons'},{name:'Ingredients',href:'/ingredient'}]
+  const displayRef = useRef();
   return (
     <nav className="TopNav">
         <img className="TopNav_logo" src={"images/shesha_logo.png"} alt=""/>
-        <a className='TopNav_a' href="/">Home</a>
-        <a className='TopNav_a' href="/Lessons">Lessons</a>
-        <a className='TopNav_a' href="/LiveLessons">Live lessons</a>
-        <a className='TopNav_a' href="/SearchIngredients">Ingredients</a>
+        {navigation.map((item)=>(
+          <NavLink key={item.name} to={item.href} className={ ({isActive}) => {return `TopNav_a ${isActive? 'TopNav_a active': ''}`}}>{item.name}</NavLink>
+        ))}
         <div ref={displayRef}>
-        </div> 
+        </div>
         <button className="search_icon" type="button" onClick={function(){
           const inputTypeText = document.createElement("input");
           inputTypeText.type = "text";
