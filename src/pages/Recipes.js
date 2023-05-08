@@ -15,7 +15,7 @@ export const Recipes = ({API_KEY,query,setQuery,recipes,setRecipes,isDoneLoading
             setIsDoneLoading("");
             clearTimeout(myTimeout);
         }, 2000);
-        const recipeData = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=${9}&apiKey=${API_KEY}&includeNutrition=true`).then( response => response.json() ).then( jsonData => jsonData.results);
+        //const recipeData = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=${9}&apiKey=${API_KEY}&includeNutrition=true`).then( response => response.json() ).then( jsonData => jsonData.results);
         //setRecipes(recipeData);
         //setQuery("");
         //console.log(recipeData);
